@@ -1,0 +1,16 @@
+image: python:3.12
+
+stages:
+  - test
+
+test_all:
+  stage: test
+  tags:
+    - impulse
+  before_script:
+    - pip install pytest
+    - chmod +x "Task1/parser.sh"
+    - chmod +x "Task1/parser.py"
+  script:
+    - cd Task1
+    - python -m pytest -v --durations=0
